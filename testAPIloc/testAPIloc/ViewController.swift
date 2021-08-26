@@ -18,12 +18,19 @@ class ViewController: UIViewController {
                     do {
                         let res = try JSONDecoder().decode(Response.self, from: data)
                         print(res)
+                        //CÓDIGO ABAIXO COMENTADO POIS O USERDEFAULT JA FOI DEFINIDO E ARMAZENADO
+                        //UserDefaults.standard.set(res.country, forKey: "country")
+                        if let userCountry = UserDefaults.standard.value(forKey: "country"){
+                            print(userCountry)
+                        }
                     } catch let error {
                         print(error)
                     }
                 }
             }.resume()
         }
+        
+        
         
     }
     
